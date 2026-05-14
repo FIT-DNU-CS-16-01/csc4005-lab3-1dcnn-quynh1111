@@ -234,14 +234,15 @@ Không yêu cầu raw waveform phải tốt hơn MFCC. Điều quan trọng là 
 
 ## 9. Checklist nộp bài
 
-- [ ] Chạy được ít nhất 1 run `MFCC + 1D-CNN`
+- [x] Chạy được ít nhất 1 run `MFCC + 1D-CNN`
 - [ ] Có link W&B dashboard/run
-- [ ] Có `curves.png`
-- [ ] Có `confusion_matrix.png`
-- [ ] Có bảng metric: train/val/test accuracy
-- [ ] Có nhận xét lớp nào dễ nhầm lẫn
-- [ ] Có giải thích ngắn: vì sao 1D-CNN phù hợp với chuỗi đặc trưng audio
-- [ ] Bài mở rộng, nếu làm: so sánh thêm raw waveform hoặc log-mel
+- [x] Có `curves.png`
+- [x] Có `confusion_matrix.png`
+- [x] Có bảng metric: train/val/test accuracy
+- [x] Có nhận xét lớp nào dễ nhầm lẫn
+- [x] Có giải thích ngắn: vì sao 1D-CNN phù hợp với chuỗi đặc trưng audio
+- [x] Bài mở rộng: so sánh thêm log-mel
+- [x] Bài mở rộng: raw waveform
 
 ---
 
@@ -253,3 +254,40 @@ python ci/smoke_train.py
 ```
 
 `smoke_train.py` tự tạo dữ liệu audio giả lập nhỏ theo format UrbanSound8K để kiểm tra pipeline, không cần tải dataset thật.
+
+---
+
+## 11. Kết quả đã chạy (offline)
+
+### 11.1 Baseline MFCC + 1D-CNN (mfcc_1dcnn_stable)
+
+- Best val acc: **0.5875**
+- Test acc: **0.5161**
+- Avg epoch time: **15.86 sec**
+- Params: **137,930**
+- Output: `outputs/mfcc_1dcnn_stable/`
+  - `curves.png`
+  - `confusion_matrix.png`
+  - `metrics.json`
+
+### 11.2 Log-mel + 1D-CNN (logmel_1dcnn_offline)
+
+- Best val acc: **0.6263**
+- Test acc: **0.6387**
+- Avg epoch time: **9.57 sec**
+- Params: **145,610**
+- Output: `outputs/logmel_1dcnn_offline/`
+  - `curves.png`
+  - `confusion_matrix.png`
+  - `metrics.json`
+
+### 11.3 Raw waveform + 1D-CNN (raw_waveform_1dcnn_offline)
+
+- Best val acc: **0.4989**
+- Test acc: **0.5871**
+- Avg epoch time: **51.89 sec**
+- Params: **129,450**
+- Output: `outputs/raw_waveform_1dcnn_offline/`
+  - `curves.png`
+  - `confusion_matrix.png`
+  - `metrics.json`
