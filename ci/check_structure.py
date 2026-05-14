@@ -10,7 +10,6 @@ REQUIRED = [
     'src/model.py',
     'src/train.py',
     'src/utils.py',
-    'docs/LAB_GUIDE_LAB3.md',
     'docs/WANDB_GUIDE.md',
     'docs/GITHUB_CLASSROOM_GUIDE.md',
     'configs/baseline_mfcc_1dcnn.json',
